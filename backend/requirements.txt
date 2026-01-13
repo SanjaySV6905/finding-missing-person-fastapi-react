@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pydantic
+python-multipart
+pillow
+numpy
+scikit-learn
+face_recognition
+python-dotenv
