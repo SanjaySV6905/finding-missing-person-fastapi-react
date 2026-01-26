@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.sqlite3
+
+# Data
+backend/data/images/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
