@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI, UploadFile, File, Form, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from . import models, schemas, crud
 from .database import engine, SessionLocal
@@ -13,6 +14,15 @@ from typing import List
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Missing Person Finder (FastAPI)")
+
+# CORS - allow the frontend dev server (adjust origin as needed)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # for quick testing you can use ["*"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ensure data folders
 os.makedirs("data/images", exist_ok=True)
